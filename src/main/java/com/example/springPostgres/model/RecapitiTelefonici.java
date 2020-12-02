@@ -25,7 +25,7 @@ public class RecapitiTelefonici implements Serializable {
     private String numero_recapito;
 
     @ManyToOne()
-    @JoinColumn(name = "idana", nullable = false)
+    @JoinColumn(name = "idana", nullable = false, insertable = false, updatable = false)
     private Anagrafica anagrafica;
 
     public long getIdreca() {
@@ -62,5 +62,9 @@ public class RecapitiTelefonici implements Serializable {
 
     public Anagrafica getAnagrafica(){
         return anagrafica;
+    }
+
+    public void setAnagrafica(Anagrafica anagrafica) {
+        this.anagrafica = anagrafica;
     }
 }

@@ -8,7 +8,7 @@ type RecapitiTelefonici{
 }
 
 extend type Query {
-    recapitoByID(id:ID!): RecapitiTelefonici
+    recapitoById(id:ID!): RecapitiTelefonici
     recapitoAll: [RecapitiTelefonici]!
 }
 

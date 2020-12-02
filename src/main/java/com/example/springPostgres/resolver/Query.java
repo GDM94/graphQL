@@ -26,7 +26,7 @@ public class Query implements GraphQLQueryResolver {
         this.recapitiService = recapitiService;
     }
 
-    public Optional<Anagrafica> anagraficaByid(long id) {
+    public Optional<Anagrafica> anagraficaById(long id) {
         return anagraficaService.findById(id);
     }
 
@@ -34,7 +34,7 @@ public class Query implements GraphQLQueryResolver {
         return anagraficaService.findAll();
     }
 
-    public Optional<Indirizzo> indirizzoByid(long id){
+    public Optional<Indirizzo> indirizzoById(long id){
         return indirizzoService.findById(id);
     }
 
@@ -42,11 +42,11 @@ public class Query implements GraphQLQueryResolver {
         return indirizzoService.findAll();
     }
 
-    public Optional<RecapitiTelefonici> recapitoByID(long id){
+    public Optional<RecapitiTelefonici> recapitoById(long id){
         return recapitiService.findById(id);
     }
 
-    public Iterable<RecapitiTelefonici> recapitiAll(){
+    public Iterable<RecapitiTelefonici> recapitoAll(){
         return recapitiService.findAll();
     }
 

@@ -28,7 +28,7 @@ public class Indirizzo implements Serializable {
     private java.util.Date date_agg;
 
     @ManyToOne()
-    @JoinColumn(name = "idana", nullable = false)
+    @JoinColumn(name = "idana", nullable = false, insertable = false, updatable = false)
     private Anagrafica anagrafica;
 
     public int getIdAddress() {
@@ -75,6 +75,6 @@ public class Indirizzo implements Serializable {
         return anagrafica;
     }
 
-
+    public void setAnagrafica(Anagrafica anagrafica) {this.anagrafica = anagrafica; }
 
 }

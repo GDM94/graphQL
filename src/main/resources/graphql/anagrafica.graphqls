@@ -1,15 +1,13 @@
-scalar Date
+
 
 type Anagrafica{
     idana: ID!
     nome: String!
     cognome: String!
-    date_create: Date!
-    date_agg: Date!
 }
 
 extend type Query {
-    anagraficaByid(id: ID!): Anagrafica
+    anagraficaById(id: ID!): Anagrafica
     anagraficaAll: [Anagrafica]!
 }
 
