@@ -1,0 +1,21 @@
+scalar Date
+
+type Anagrafica{
+    idaddress: ID!
+    idana: Int!
+    descrizione: String!
+    date_create: Date!
+    date_agg: Date!
+}
+
+extend type Query {
+    descrizione(id: ID!): String
+    findAlldesc: [String]!
+}
+
+extend type Mutation {
+    newIndirizzo(idaddress: ID!, idana: Int!,
+        descrizione: String!,
+        date_create: Date!,
+        date_agg: Date!):Anagrafica!
+}
