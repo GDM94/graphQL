@@ -42,8 +42,8 @@ public class Mutation implements GraphQLMutationResolver {
 
     public Indirizzo newIndirizzo(int id, int idana, String descrizione){
         Indirizzo indirizzo = new Indirizzo();
-        indirizzo.setIdAddress(id);
-        indirizzo.setIdAna(idana);
+        indirizzo.setIdaddress(id);
+        indirizzo.setIdana(idana);
         indirizzo.setDescrizione(descrizione);
         Date date = new Date();
         indirizzo.setDate_create(date);

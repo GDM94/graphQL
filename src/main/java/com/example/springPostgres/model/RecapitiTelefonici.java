@@ -1,6 +1,9 @@
 package com.example.springPostgres.model;
 
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -11,6 +14,9 @@ import java.io.Serializable;
 @Entity
 @Table(name= "recapiti_telefonici")
 @EntityListeners(AuditingEntityListener.class)
+@Getter
+@Setter
+@NoArgsConstructor
 public class RecapitiTelefonici implements Serializable {
     @Id
     private long idreca;
@@ -27,44 +33,4 @@ public class RecapitiTelefonici implements Serializable {
     @ManyToOne()
     @JoinColumn(name = "idana", nullable = false, insertable = false, updatable = false)
     private Anagrafica anagrafica;
-
-    public long getIdreca() {
-        return idreca;
-    }
-
-    public void setIdreca(long idreca) {
-        this.idreca = idreca;
-    }
-
-    public long getIdana() {
-        return idana;
-    }
-
-    public void setIdana(long idana) {
-        this.idana = idana;
-    }
-
-    public String getTipo_recapito() {
-        return tipo_recapito;
-    }
-
-    public void setTipo_recapito(String tipo_recapito) {
-        this.tipo_recapito = tipo_recapito;
-    }
-
-    public String getNumero_recapito() {
-        return numero_recapito;
-    }
-
-    public void setNumero_recapito(String numero_recapito) {
-        this.numero_recapito = numero_recapito;
-    }
-
-    public Anagrafica getAnagrafica(){
-        return anagrafica;
-    }
-
-    public void setAnagrafica(Anagrafica anagrafica) {
-        this.anagrafica = anagrafica;
-    }
 }
