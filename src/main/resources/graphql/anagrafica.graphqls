@@ -1,9 +1,10 @@
 
-
 type Anagrafica{
     idana: ID!
     nome: String!
     cognome: String!
+    date_create: String!
+    date_agg: String!
 }
 
 extend type Query {

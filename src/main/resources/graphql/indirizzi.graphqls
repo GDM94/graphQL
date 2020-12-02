@@ -1,8 +1,9 @@
 
-
 type Indirizzo{
     idaddress: ID!
     descrizione: String!
+    date_create: String!
+    date_agg: String!
     anagrafica: Anagrafica!
 }
 
