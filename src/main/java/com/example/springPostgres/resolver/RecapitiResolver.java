@@ -3,18 +3,18 @@ package com.example.springPostgres.resolver;
 import com.coxautodev.graphql.tools.GraphQLResolver;
 import com.example.springPostgres.model.Anagrafica;
 import com.example.springPostgres.model.RecapitiTelefonici;
-import com.example.springPostgres.services.AnagraficaService;
+import com.example.springPostgres.repositories.AnagraficaRepository;
 import org.springframework.stereotype.Component;
 
 @Component
 public class RecapitiResolver implements GraphQLResolver<RecapitiTelefonici> {
-     private AnagraficaService anagraficaService;
+     private AnagraficaRepository anagraficaRepository;
 
-     public  RecapitiResolver(AnagraficaService anagraficaService){
-         this.anagraficaService = anagraficaService;
+     public  RecapitiResolver(AnagraficaRepository anagraficaRepository){
+         this.anagraficaRepository = anagraficaRepository;
      }
 
      public Anagrafica getAnagrafica(RecapitiTelefonici recapitiTelefonici){
-          return anagraficaService.findById(recapitiTelefonici.getAnagrafica().getIdana()).orElse(null);
+          return anagraficaRepository.findById(recapitiTelefonici.getAnagrafica().getIdana()).orElse(null);
      }
 }

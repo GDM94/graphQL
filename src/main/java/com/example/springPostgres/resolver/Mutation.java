@@ -4,10 +4,9 @@ import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.example.springPostgres.model.Anagrafica;
 import com.example.springPostgres.model.Indirizzo;
 import com.example.springPostgres.model.RecapitiTelefonici;
-import com.example.springPostgres.services.AnagraficaService;
-import com.example.springPostgres.services.IndirizzoService;
-import com.example.springPostgres.services.RecapitiService;
-import org.checkerframework.checker.units.qual.A;
+import com.example.springPostgres.repositories.AnagraficaRepository;
+import com.example.springPostgres.repositories.IndirizzoRepository;
+import com.example.springPostgres.repositories.RecapitiRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -16,16 +15,16 @@ import java.util.Date;
 @Component
 public class Mutation implements GraphQLMutationResolver {
 
-    private AnagraficaService anagraficaService;
-    private IndirizzoService indirizzoService;
-    private RecapitiService recapitiService;
+    private AnagraficaRepository anagraficaRepository;
+    private IndirizzoRepository indirizzoRepository;
+    private RecapitiRepository recapitiRepository;
 
-    public Mutation(AnagraficaService anagraficaService,
-                 IndirizzoService indirizzoService,
-                 RecapitiService recapitiService){
-        this.anagraficaService = anagraficaService;
-        this.indirizzoService = indirizzoService;
-        this.recapitiService = recapitiService;
+    public Mutation(AnagraficaRepository anagraficaRepository,
+                    IndirizzoRepository indirizzoRepository,
+                    RecapitiRepository recapitiRepository){
+        this.anagraficaRepository = anagraficaRepository;
+        this.indirizzoRepository = indirizzoRepository;
+        this.recapitiRepository = recapitiRepository;
     }
 
     public Anagrafica newAnagrafica(int id, String nome, String cognome ){
@@ -36,7 +35,7 @@ public class Mutation implements GraphQLMutationResolver {
         Date date = new Date();
         anagrafica.setDate_create(date);
         anagrafica.setDate_agg(date);
-        anagraficaService.save(anagrafica);
+        anagraficaRepository.save(anagrafica);
         return anagrafica;
     }
 
@@ -51,7 +50,7 @@ public class Mutation implements GraphQLMutationResolver {
         Anagrafica anagrafica = new Anagrafica();
         anagrafica.setIdana(idana);
         indirizzo.setAnagrafica(anagrafica);
-        indirizzoService.save(indirizzo);
+        indirizzoRepository.save(indirizzo);
         return indirizzo;
     }
 
@@ -64,7 +63,7 @@ public class Mutation implements GraphQLMutationResolver {
         Anagrafica anagrafica = new Anagrafica();
         anagrafica.setIdana(idana);
         recapitiTelefonici.setAnagrafica(anagrafica);
-        recapitiService.save(recapitiTelefonici);
+        recapitiRepository.save(recapitiTelefonici);
         return recapitiTelefonici;
     }
 

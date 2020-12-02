@@ -3,19 +3,18 @@ package com.example.springPostgres.resolver;
 
 import com.example.springPostgres.model.Anagrafica;
 import com.example.springPostgres.model.Indirizzo;
-import com.example.springPostgres.model.RecapitiTelefonici;
-import com.example.springPostgres.services.AnagraficaService;
+import com.example.springPostgres.repositories.AnagraficaRepository;
 import org.springframework.stereotype.Component;
 
 @Component
 public class IndirizziResolver {
-    private AnagraficaService anagraficaService;
+    private AnagraficaRepository anagraficaRepository;
 
-    public  IndirizziResolver (AnagraficaService anagraficaService){
-        this.anagraficaService = anagraficaService;
+    public  IndirizziResolver (AnagraficaRepository anagraficaRepository){
+        this.anagraficaRepository = anagraficaRepository;
     }
 
     public Anagrafica getAnagrafica(Indirizzo indirizzo){
-        return anagraficaService.findById(indirizzo.getAnagrafica().getIdana()).orElse(null);
+        return anagraficaRepository.findById(indirizzo.getAnagrafica().getIdana()).orElse(null);
     }
 }

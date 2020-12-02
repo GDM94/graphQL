@@ -4,9 +4,9 @@ import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.example.springPostgres.model.Anagrafica;
 import com.example.springPostgres.model.Indirizzo;
 import com.example.springPostgres.model.RecapitiTelefonici;
-import com.example.springPostgres.services.AnagraficaService;
-import com.example.springPostgres.services.IndirizzoService;
-import com.example.springPostgres.services.RecapitiService;
+import com.example.springPostgres.repositories.AnagraficaRepository;
+import com.example.springPostgres.repositories.IndirizzoRepository;
+import com.example.springPostgres.repositories.RecapitiRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
@@ -14,40 +14,40 @@ import java.util.Optional;
 @Component
 public class Query implements GraphQLQueryResolver {
 
-    private AnagraficaService anagraficaService;
-    private IndirizzoService indirizzoService;
-    private RecapitiService recapitiService;
+    private final AnagraficaRepository anagraficaRepository;
+    private final IndirizzoRepository indirizzoRepository;
+    private final RecapitiRepository recapitiRepository;
 
-    public Query(AnagraficaService anagraficaService,
-                 IndirizzoService indirizzoService,
-                 RecapitiService recapitiService){
-        this.anagraficaService = anagraficaService;
-        this.indirizzoService = indirizzoService;
-        this.recapitiService = recapitiService;
+    public Query(AnagraficaRepository anagraficaRepository,
+                 IndirizzoRepository indirizzoRepository,
+                 RecapitiRepository recapitiRepository){
+        this.anagraficaRepository = anagraficaRepository;
+        this.indirizzoRepository = indirizzoRepository;
+        this.recapitiRepository = recapitiRepository;
     }
 
     public Optional<Anagrafica> anagraficaById(long id) {
-        return anagraficaService.findById(id);
+        return anagraficaRepository.findById(id);
     }
 
     public Iterable<Anagrafica> anagraficaAll(){
-        return anagraficaService.findAll();
+        return anagraficaRepository.findAll();
     }
 
     public Optional<Indirizzo> indirizzoById(long id){
-        return indirizzoService.findById(id);
+        return indirizzoRepository.findById(id);
     }
 
     public Iterable<Indirizzo> indirizzoAll(){
-        return indirizzoService.findAll();
+        return indirizzoRepository.findAll();
     }
 
     public Optional<RecapitiTelefonici> recapitoById(long id){
-        return recapitiService.findById(id);
+        return recapitiRepository.findById(id);
     }
 
     public Iterable<RecapitiTelefonici> recapitoAll(){
-        return recapitiService.findAll();
+        return recapitiRepository.findAll();
     }
 
 }
