@@ -1,11 +1,11 @@
 scalar Date
 
-type Anagrafica{
+type Indirizzo{
     idaddress: ID!
-    idana: Int!
     descrizione: String!
     date_create: Date!
     date_agg: Date!
+    anagrafica: Anagrafica!
 }
 
 extend type Query {
@@ -14,8 +14,5 @@ extend type Query {
 }
 
 extend type Mutation {
-    newIndirizzo(idaddress: ID!, idana: Int!,
-        descrizione: String!,
-        date_create: Date!,
-        date_agg: Date!):Anagrafica!
+    newIndirizzo(idaddress: ID!, idana: ID!,descrizione: String!):Indirizzo!
 }
