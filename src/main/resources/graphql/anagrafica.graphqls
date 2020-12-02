@@ -10,7 +10,7 @@ type Anagrafica{
 
 extend type Query {
     anagraficaByid(id: ID!): Anagrafica
-    findAllanagrafica: [Anagrafica]!
+    anagraficaAll: [Anagrafica]!
 }
 
 extend type Mutation {

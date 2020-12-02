@@ -9,8 +9,8 @@ type Indirizzo{
 }
 
 extend type Query {
-    descrizione(id: ID!): String
-    findAlldesc: [String]!
+    indirizzoByid(id: ID!): Indirizzo
+    indirizzoAll: [Indirizzo]!
 }
 
 extend type Mutation {

@@ -15,12 +15,6 @@ public class Indirizzo implements Serializable {
     @Id
     private int idaddress;
 
-    /*
-    @ManyToOne
-    @JoinColumn(name = "idana")
-    private Anagrafica ana;
-    */
-
     @Column(name="idana", nullable = false)
     private int idana;
 
