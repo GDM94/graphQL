@@ -10,6 +10,7 @@ import com.example.springPostgres.repositories.RecapitiRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
+import java.util.Optional;
 
 
 @Component
@@ -39,6 +40,25 @@ public class Mutation implements GraphQLMutationResolver {
         return anagrafica;
     }
 
+    public Optional<Anagrafica> updateAnagrafica(long id, String nome, String cognome) {
+        Optional<Anagrafica> anagrafica = anagraficaRepository.findById(id);
+        Date date = new Date();
+
+        anagrafica.ifPresent(a -> {
+            a.setNome(nome);
+            a.setCognome(cognome);
+            a.setDate_agg(date);
+            anagraficaRepository.save(a);
+        });
+
+        return anagrafica;
+    }
+
+    public boolean deleteAnagrafica(Long id) {
+        anagraficaRepository.deleteById(id);
+        return true;
+    }
+
     public Indirizzo newIndirizzo(int id, int idana, String descrizione){
         Indirizzo indirizzo = new Indirizzo();
         indirizzo.setIdaddress(id);
@@ -53,6 +73,27 @@ public class Mutation implements GraphQLMutationResolver {
         indirizzoRepository.save(indirizzo);
         return indirizzo;
     }
+/*
+    public Optional<Indirizzo> updateIndirizzo(long id, String descrizione) {
+        Optional<Indirizzo> indirizzo = indirizzoRepository.findById(id);
+        Date date = new Date();
+
+        indirizzo.ifPresent(a -> {
+            a.setDescrizione(descrizione);
+            a.setDate_agg(date);
+            indirizzoRepository.save(a);
+        });
+
+        return indirizzo;
+    }
+
+    public boolean deleteIndirizzo(Long id) {
+        indirizzoRepository.deleteById(id);
+        return true;
+    }
+
+
+ */
 
     public RecapitiTelefonici newRecapito(int id, int idana, String tipo_recapito, String numero_recapito){
         RecapitiTelefonici recapitiTelefonici = new RecapitiTelefonici();

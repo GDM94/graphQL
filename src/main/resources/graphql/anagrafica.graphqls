@@ -14,4 +14,6 @@ extend type Query {
 
 extend type Mutation {
     newAnagrafica(idana: ID!, nome: String!, cognome: String!):Anagrafica!
+    updateAnagrafica(id: ID!, nome: String!, cognome: String!): Anagrafica
+    deleteAnagrafica(id: ID): Boolean!
 }
