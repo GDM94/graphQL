@@ -9,8 +9,8 @@ type Anagrafica{
 }
 
 extend type Query {
-    nome(id: ID!): String
-    findAllname: [String]!
+    anagraficaByid(id: ID!): Anagrafica
+    findAllanagrafica: [Anagrafica]!
 }
 
 extend type Mutation {
