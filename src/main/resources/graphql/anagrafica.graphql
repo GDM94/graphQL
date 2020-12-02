@@ -1,0 +1,18 @@
+scalar Date
+
+type Anagrafica{
+    idana: ID!
+    nome: String!
+    cognome: String!
+    date_create: Date!
+    date_agg: Date!
+}
+
+extend type Query {
+    nome(id: ID!): String
+    findAllname: [String]!
+}
+
+extend type Mutation {
+    newAnagrafica(id: ID!, nome: String!, cognome: String!):Anagrafica!
+}
