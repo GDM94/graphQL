@@ -15,6 +15,6 @@ public class RecapitiResolver implements GraphQLResolver<RecapitiTelefonici> {
      }
 
      public Anagrafica getAnagrafica(RecapitiTelefonici recapitiTelefonici){
-
+          return anagraficaService.findById(recapitiTelefonici.getAnagrafica().getIdana()).orElse(null);
      }
 }
