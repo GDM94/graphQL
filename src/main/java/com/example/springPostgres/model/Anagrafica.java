@@ -20,7 +20,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Anagrafica implements Serializable {
     @Id
-    private long idana;
+    private Long idana;
 
     @Column(name="nome", nullable = false)
     private String nome;

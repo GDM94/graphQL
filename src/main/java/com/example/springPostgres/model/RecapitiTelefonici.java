@@ -19,10 +19,10 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class RecapitiTelefonici implements Serializable {
     @Id
-    private long idreca;
+    private Long idreca;
 
     @Column(name="idana", nullable = false)
-    private long idana;
+    private Long idana;
 
     @Column(name="tipo_recapito", nullable = false)
     private String tipo_recapito;

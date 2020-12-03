@@ -19,10 +19,10 @@ import java.util.Date;
 @NoArgsConstructor
 public class Indirizzo implements Serializable {
     @Id
-    private int idaddress;
+    private Long idaddress;
 
     @Column(name="idana", nullable = false)
-    private int idana;
+    private Long idana;
 
     @Column(name="descrizione", nullable = false)
     private String descrizione;
